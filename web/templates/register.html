@@ -1,0 +1,53 @@
+{% autoescape None %}{% extends "layout-base.html" %}{% block content %}
+<div class="row-fluid">
+  <div class="span10 offset1">
+    <form action="/api/user/register" method="post" class="form-horizontal">
+      <fieldset>
+        <div class="row-fluid">
+          <legend class="span12">Register</legend>
+        </div>
+        <div class="row-fluid">
+          <div class="control-group span12">
+            <label for="name" class="control-label span2">Name</label>
+            <div class="controls">
+              <input type="text" id="fullname" placeholder="Full name" name="fullname" class="span10"/>
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="control-group span12">
+            <label for="organisation" class="control-label span2">Organisation</label>
+            <div class="controls">
+              <input type="text" id="organisation" placeholder="Your organisation, company name, etc" name="organisation" class="span10"/>
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="control-group span12">
+            <label for="email" class="control-label span2">Email</label>
+            <div class="controls">
+              <input type="text" id="email_address" placeholder="Email address" name="email_address" class="span10"/>
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="control-group span12">
+            <label for="password" class="control-label span2">Password</label>
+            <div class="controls">
+              <input type="password" id="password" placeholder="Password" name="password" class="span6"/>
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="form-actions">
+            <p>
+              <button type="submit" class="btn btn-primary">Register</button>&nbsp;
+
+              <button type="button" class="btn">Cancel</button>
+            </p>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>{% end %}

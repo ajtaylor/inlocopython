@@ -1,0 +1,32 @@
+{% autoescape None %}<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InLoco &middot; Resource Management</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/site.css">
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container"><a href="#" class="brand">InLoco</a>
+          <ul class="nav">
+            <li><a href="/">Home</a>
+            </li>
+            <li><a href="/features">Features</a>
+            </li>
+            <li><a href="/about">About</a>
+            </li>
+            <li><a href="/register">Register</a>
+            </li>
+            <li><a href="/login">Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container">{% block content %}{% end %}
+    </div>
+  </body>
+</html>

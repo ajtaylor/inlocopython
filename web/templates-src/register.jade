@@ -1,0 +1,35 @@
+extends layout-base.html
+
+block content
+  .row-fluid
+    .span10.offset1
+      form.form-horizontal(action="/api/user/register", method="post")
+        fieldset
+          .row-fluid
+            legend.span12 Register
+          .row-fluid
+            .control-group.span12
+              label.control-label.span2(for="name") Name
+              .controls
+                input.span10(type="text", id="fullname", placeholder="Full name", name="fullname")
+          .row-fluid
+            .control-group.span12
+              label.control-label.span2(for="organisation") Organisation
+              .controls
+                input.span10(type="text", id="organisation", placeholder="Your organisation, company name, etc", name="organisation")
+          .row-fluid
+            .control-group.span12
+              label.control-label.span2(for="email") Email
+              .controls
+                input.span10(type="text", id="email_address", placeholder="Email address", name="email_address")
+          .row-fluid
+            .control-group.span12
+              label.control-label.span2(for="password") Password
+              .controls
+                input.span6(type="password", id="password", placeholder="Password", name="password")
+          .row-fluid
+            .form-actions
+              p
+                button.btn.btn-primary(type="submit") Register
+                &nbsp;
+                button.btn(type="button") Cancel

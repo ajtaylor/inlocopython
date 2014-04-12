@@ -1,0 +1,35 @@
+{% autoescape None %}{% extends "layout-base.html" %}{% block content %}
+<div class="row-fluid">
+  <div class="span10 offset1">
+    <form action="/api/user/login" method="post" class="form-horizontal">
+      <fieldset>
+        <div class="row-fluid">
+          <legend class="span12">Login</legend>
+        </div>
+        <div class="row-fluid">
+          <div class="control-group span12">
+            <label for="email_address" class="control-label span2">Email</label>
+            <div class="controls">
+              <input type="text" id="email_address" placeholder="Email address" name="email_address" class="span10"/>
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="control-group span12">
+            <label for="password" class="control-label span2">Password</label>
+            <div class="controls">
+              <input type="password" id="password" placeholder="Password" name="password" class="span6"/>
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="form-actions">
+            <p>
+              <button type="submit" class="btn btn-primary">Login</button>
+            </p>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>{% end %}
