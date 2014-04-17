@@ -4,6 +4,7 @@ Created on 6 Apr 2014
 @author: ttaylor
 '''
 import os
+from tornado.options import define, options
 import tornado.ioloop
 import tornado.web
 from handlers import *
@@ -24,6 +25,12 @@ application = tornado.web.Application([
     (r'/static/(.*)', tornado.web.StaticFileHandler, dict(path=settings['static_path'])),
 ], **settings)
 
+define("port", default="8080", help="Port to listen on")
+
 if __name__ == '__main__':
-    application.listen(8080)
-    tornado.ioloop.IOLoop.instance().start()
+    tornado.options.parse_command_line()
+    try:
+        application.listen(options.port)
+        tornado.ioloop.IOLoop.instance().start()
+    except KeyboardInterrupt:
+        tornado.ioloop.IOLoop.instance().stop()
