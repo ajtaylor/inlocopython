@@ -1,1 +1,8 @@
-__all__ = ["home", "features", "about", "register", "login"]
+#__all__ = ["home", "features", "about", "register", "login"]
+from .about import AboutHandler
+from .features import FeaturesHandler
+from .home import HomeHandler
+from .login import LoginHandler
+from .register import RegisterHandler
+from .thankyou import ThankyouHandler
+from .user import UserHandler
