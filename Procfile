@@ -1,1 +1,1 @@
-web: python src/web/server.py --port=$PORT --logging=error --pythonpath=/srv/www/src
+web: python src/web/server.py --port=$PORT --logging=error
