@@ -10,7 +10,7 @@ from urllib.parse import urlparse
 from tornado.options import define, options
 import tornado.ioloop
 import tornado.web
-from web import handlers
+import handlers
 
 root = os.path.dirname(__file__)
 
