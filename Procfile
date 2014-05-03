@@ -1,1 +1,1 @@
-web: python web/server.py --port=$PORT --logging=error
+web: python inloco/web/server.py --port=$PORT --logging=error
