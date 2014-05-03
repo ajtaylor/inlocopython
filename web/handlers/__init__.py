@@ -1,4 +1,3 @@
-#__all__ = ["home", "features", "about", "register", "login"]
 from .about import AboutHandler
 from .features import FeaturesHandler
 from .home import HomeHandler
