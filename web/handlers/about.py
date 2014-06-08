@@ -1,15 +1,15 @@
-'''
+"""
 Created on 6 Apr 2014
 
-@author: Owner
-'''
+@author: ttaylor
+"""
 import tornado.web
 
-class AboutHandler(tornado.web.RequestHandler):
-    '''
-    classdocs
-    '''
 
+class AboutHandler(tornado.web.RequestHandler):
+    """
+    classdocs
+    """
 
     def get(self):
-        self.render("about.html")
+        self.render('about.html')

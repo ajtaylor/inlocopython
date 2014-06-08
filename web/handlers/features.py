@@ -1,15 +1,12 @@
-'''
-Created on 6 Apr 2014
+__author__ = 'ttaylor'
 
-@author: Owner
-'''
 import tornado.web
 
-class FeaturesHandler(tornado.web.RequestHandler):
-    '''
-    classdocs
-    '''
 
+class FeaturesHandler(tornado.web.RequestHandler):
+    """
+    classdocs
+    """
 
     def get(self):
-        self.render("features.html")
+        self.render('features.html')

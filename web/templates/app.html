@@ -1,0 +1,35 @@
+{% autoescape None %}<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InLoco &middot; Resource Management</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/ui.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/app.css">
+  </head>
+  <body>
+    <nav class="uk-navbar">
+      <div class="uk-navbar-brand">Inloco</div>
+      <ul class="uk-navbar-nav">
+        <li><a href="#/home">Home</a>
+        </li>
+        <li><a href="#/calendar">Calendar</a>
+        </li>
+        <li><a href="#/preferences">Preferences</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="uk-grid">
+      <div id="view-home" class="uk-width-1-1">
+        <p>Home</p>
+      </div>
+      <div id="view-calendar" class="uk-width-1-1 view-hide">
+        <p>Calendar</p>
+      </div>
+      <div id="view-preferences" class="uk-width-1-1 view-hide">
+        <p>Preferences</p>
+      </div>
+    </div>
+  </body>
+  <script data-main="/static/javascript/app" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.6/require.min.js"></script>
+</html>
