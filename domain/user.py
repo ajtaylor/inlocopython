@@ -28,8 +28,7 @@ class User():
                     
             cursor = yield momoko.Op(self.repository.execute, sql, values)
         except (psycopg2.Warning, psycopg2.Error) as error:
-            print(str(error))
-            return str(error)
+            raise error
         else:
             return cursor.fetchone()
 
@@ -43,7 +42,8 @@ class User():
             cursor = yield momoko.Op(self.repository.execute, sql, values)
         except (psycopg2.Warning, psycopg2.Error) as error:
             print(str(error))
-            return str(error)
+            # return str(error)
+            raise error
         else:
             # print(cursor.description)
             # print(cursor.description[0][0])

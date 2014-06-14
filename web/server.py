@@ -35,6 +35,7 @@ define('port', default='8080', help='Port to listen on')
 if __name__ == '__main__':
     tornado.options.parse_command_line()
     try:
+        print(os.environ['CRED_FILE'])
         cred_file = open(os.environ['CRED_FILE'])
         credentials = json.load(cred_file)
         
