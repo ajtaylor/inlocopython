@@ -1,26 +1,41 @@
 doctype html
 html
-  head
-    meta(charset="utf-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title InLoco &middot; Resource Management
-    link(rel="stylesheet", type="text/css", href="/static/css/ui.css")
-    link(rel="stylesheet", type="text/css", href="/static/css/app.css")
-  body
-    nav.uk-navbar
-      .uk-navbar-brand Inloco
-      ul.uk-navbar-nav
-        li
-          a(href="#/home") Home
-        li
-          a(href="#/calendar") Calendar
-        li
-          a(href="#/preferences") Preferences
-    .uk-grid
-      #view-home.uk-width-1-1
-        p Home
-      #view-calendar.uk-width-1-1.view-hide
-        p Calendar
-      #view-preferences.uk-width-1-1.view-hide
-        p Preferences
-  script(data-main="/static/javascript/app", src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.6/require.min.js")
+    head
+        meta(charset="utf-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title InLoco &middot; Resource Management
+        link(rel="stylesheet", type="text/css", href="http://cdn.ink.sapo.pt/3.0.2/css/ink.min.css")
+        link(rel="stylesheet", type="text/css", href="/static/css/app.css")
+    body
+        nav.ink-navigation
+            ul.menu.horizontal.green
+                li.heading
+                    a(href="#") Inloco
+                li
+                    a(href="#/home") Home
+                li
+                    a(href="#/calendar") Calendar
+                li
+                    a(href="#/preferences") Preferences
+                {% if user_info.is_admin %}
+                li
+                    a(href="#") Admin
+                    ul.submenu
+                        li
+                            a(href="#") Users
+                        li
+                            a(href="#") Resource&nbsp;types
+                        li
+                            a(href="#") Resources
+                {% end %}
+                li
+                    a(href="#") Logout
+        .ink-grid
+            .column-group
+                #view-home.all-100
+                    p Home
+                #view-calendar.all-100.view-hide
+                    p Calendar
+                #view-preferences.all-100.view-hide
+                    p Preferences
+    script(data-main="/static/javascript/app", src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.6/require.min.js")

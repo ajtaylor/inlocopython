@@ -1,22 +1,16 @@
 __author__ = 'ttaylor'
 
+from domain.domain_base import DomainBase
 import momoko
 import psycopg2
 from tornado import gen
 import uuid
 
 
-class Organisation():
+class Organisation(DomainBase):
     """
     classdocs
     """
-
-    def __init__(self, repository):
-        """
-        Constructor
-        :type repository: application.repository
-        """
-        self.repository = repository
 
     @gen.coroutine
     def register(self, fullname, email_address, password):
@@ -28,7 +22,6 @@ class Organisation():
 
             cursor = yield momoko.Op(self.repository.execute, sql, values)
         except (psycopg2.Warning, psycopg2.Error) as error:
-            print(str(error))
-            return str(error)
+            raise error
         else:
             return cursor.fetchone()

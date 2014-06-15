@@ -3,6 +3,7 @@ __author__ = 'ttaylor'
 import os
 import json
 import momoko
+from psycopg2.extras import NamedTupleCursor
 from urllib.parse import urlparse
 from tornado.options import define, options
 import tornado.ioloop
@@ -60,7 +61,8 @@ if __name__ == '__main__':
                         db_config['password'],
                         db_config['host'],
                         db_config['port']),
-            size=1)
+            size=1,
+            cursor_factory=NamedTupleCursor)
     except Exception as ex:
         print('Could not instantiate momoko pool')
         print(type(ex))

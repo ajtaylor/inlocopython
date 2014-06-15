@@ -15,10 +15,8 @@ class UserLoginHandler(tornado.web.RequestHandler):
         u = user.User(self.application.db)
         try:
             res = yield u.login(self.get_argument('email_address'), self.get_argument('password'))
-            # print(res)
-            # self.set_secure_cookie('user_id', str(res['user_id']))
-            # self.set_secure_cookie('organisation_id', str(res['organisation_id']))
+            self.set_secure_cookie('user_id', str(res.user_id))
+            self.set_secure_cookie('organisation_id', str(res.organisation_id))
             self.redirect('/app')
         except Exception as ex:
-            print(type(ex))
             self.send_error(500)

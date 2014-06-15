@@ -1,22 +1,16 @@
 __author__ = 'ttaylor'
 
+from domain.domain_base import DomainBase
 import momoko
 import psycopg2
 from tornado import gen
 import uuid
 
 
-class User():
+class User(DomainBase):
     """
     classdocs
     """
-
-    def __init__(self, repository):
-        """
-        Constructor
-        :type repository: application.repository
-        """
-        self.repository = repository
 
     @gen.coroutine
     def register(self):
@@ -41,12 +35,29 @@ class User():
 
             cursor = yield momoko.Op(self.repository.execute, sql, values)
         except (psycopg2.Warning, psycopg2.Error) as error:
-            print(str(error))
-            # return str(error)
             raise error
         else:
-            # print(cursor.description)
-            # print(cursor.description[0][0])
             res = cursor.fetchone()
-            description = cursor.description
-            return {description[0][0]: res[0], description[3][0]: res[3]}
+            return res
+            # description = cursor.description
+            # return {description[0][0]: res[0], description[3][0]: res[3]}
+
+    @gen.coroutine
+    def getinfo(self, id):
+        try:
+            sql = ' '.join(['SELECT'
+                            ' user_id'
+                            ', name'
+                            ', is_admin'
+                            ', organisation_id'
+                            ', organisation_name'
+                            ' FROM public.get_userinfo',
+                            '(%(user_id)s);'])
+            values = dict(user_id=id)
+
+            cursor = yield momoko.Op(self.repository.execute, sql, values)
+        except (psycopg2.Warning, psycopg2.Error) as error:
+            raise error
+        else:
+            res = cursor.fetchone()
+            return res
